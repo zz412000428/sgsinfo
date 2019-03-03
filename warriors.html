@@ -1,0 +1,178 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>武将</title>
+		<style type="text/css">
+div.warrior
+{
+	border-color: black;
+	border-style: solid;
+	border-width: thick;
+	box-sizing: content-box;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 16px;
+	height: 140px;
+	margin: 1px;
+	position: relative;
+	width: 100px;
+}
+div.warrior > span
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+}
+div.warrior span.tag
+{
+	bottom: 120px;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+}
+div.warrior span.kingdom
+{
+	bottom: 100px;
+	left: 0px;
+	right: 60px;
+	top: 20px;
+}
+div.warrior span.hp
+{
+	bottom: 100px;
+	left: 40px;
+	right: 0px;
+	top: 20px;
+}
+div.warrior span.name
+{
+	bottom: 80px;
+	left: 0px;
+	right: 0px;
+	top: 40px;
+	font-weight: bold;
+}
+div.warrior span.skills
+{
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	top: 60px;
+}
+div.warrior span.skills > span
+{
+	border-color: black;
+	border-style: solid;
+	border-width: thin;
+	display: inline-block;
+	margin: 2px;
+}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+var warrior_packs=[
+	{
+		'tag':'2011年标准版',
+		'warriors':[
+			{'kingdom':'蜀','HP':'4','name':'刘备','skills':['仁德','激将']},
+			{'kingdom':'蜀','HP':'4','name':'关羽','skills':['武圣']},
+			{'kingdom':'蜀','HP':'4','name':'张飞','skills':['咆哮']},
+			{'kingdom':'蜀','HP':'3','name':'诸葛亮','skills':['观星','空城']},
+			{'kingdom':'蜀','HP':'4','name':'赵云','skills':['龙胆']},
+			{'kingdom':'蜀','HP':'4','name':'马超','skills':['马术','铁骑']},
+			{'kingdom':'蜀','HP':'3','name':'黄月英','skills':['集智','奇才']},
+			{'kingdom':'魏','HP':'4','name':'曹操','skills':['奸雄','护驾']},
+			{'kingdom':'魏','HP':'3','name':'司马懿','skills':['反馈','鬼才']},
+			{'kingdom':'魏','HP':'4','name':'夏侯惇','skills':['刚烈']},
+			{'kingdom':'魏','HP':'4','name':'张辽','skills':['突袭']},
+			{'kingdom':'魏','HP':'4','name':'许褚','skills':['裸衣']},
+			{'kingdom':'魏','HP':'3','name':'郭嘉','skills':['天妒','遗计']},
+			{'kingdom':'魏','HP':'3','name':'甄姬','skills':['倾国','洛神']},
+			{'kingdom':'吴','HP':'4','name':'孙权','skills':['制衡','救援']},
+			{'kingdom':'吴','HP':'4','name':'甘宁','skills':['奇袭']},
+			{'kingdom':'吴','HP':'4','name':'吕蒙','skills':['克己']},
+			{'kingdom':'吴','HP':'4','name':'黄盖','skills':['苦肉']},
+			{'kingdom':'吴','HP':'3','name':'周瑜','skills':['英姿','反间']},
+			{'kingdom':'吴','HP':'3','name':'大乔','skills':['国色','流离']},
+			{'kingdom':'吴','HP':'3','name':'陆逊','skills':['谦逊','连营']},
+			{'kingdom':'吴','HP':'3','name':'孙尚香','skills':['结姻','枭姬']},
+			{'kingdom':'群','HP':'3','name':'华佗','skills':['急救','青囊']},
+			{'kingdom':'群','HP':'4','name':'吕布','skills':['无双']},
+			{'kingdom':'群','HP':'3','name':'貂蝉','skills':['离间','闭月']}
+		]
+	},
+	{
+		'tag':'神话再临·风',
+		'warriors':[
+			{'kingdom':'神','HP':'5','name':'关羽','skills':['武神','武魂']},
+			{'kingdom':'神','HP':'3','name':'吕蒙','skills':['涉猎','攻心']},
+			{'kingdom':'蜀','HP':'4','name':'黄忠','skills':['烈弓']},
+			{'kingdom':'蜀','HP':'4','name':'魏延','skills':['狂骨']},
+			{'kingdom':'魏','HP':'4','name':'夏侯渊','skills':['神速']},
+			{'kingdom':'魏','HP':'4','name':'曹仁','skills':['据守']},
+			{'kingdom':'吴','HP':'3','name':'小乔','skills':['天香','红颜']},
+			{'kingdom':'吴','HP':'4','name':'周泰','skills':['不屈']},
+			{'kingdom':'群','HP':'3','name':'张角','skills':['雷击','鬼道','黄天']},
+			{'kingdom':'群','HP':'3','name':'于吉','skills':['蛊惑']}
+		]
+	},
+	{
+		'tag':'神话再临·林',
+		'warriors':[
+			{'kingdom':'神','HP':'3','name':'曹操','skills':['归心','飞影']},
+			{'kingdom':'神','HP':'5','name':'吕布','skills':['狂暴','无谋','无前','神愤']},
+			{'kingdom':'蜀','HP':'4','name':'孟获','skills':['祸首','再起']},
+			{'kingdom':'蜀','HP':'4','name':'祝融','skills':['巨象','烈刃']},
+			{'kingdom':'魏','HP':'4','name':'徐晃','skills':['断粮']},
+			{'kingdom':'魏','HP':'3','name':'曹丕','skills':['行殇','放逐','颂威']},
+			{'kingdom':'吴','HP':'4','name':'孙坚','skills':['英魂']},
+			{'kingdom':'吴','HP':'3','name':'鲁肃','skills':['好施','缔盟']},
+			{'kingdom':'群','HP':'8','name':'董卓','skills':['酒池','肉林','崩坏','暴虐']},
+			{'kingdom':'群','HP':'3','name':'贾诩','skills':['完杀','乱武','帷幕']}
+		]
+	},
+	{
+		'tag':'神话再临·火',
+		'warriors':[
+			{'kingdom':'神','HP':'4','name':'周瑜','skills':['琴音','业炎']},
+			{'kingdom':'神','HP':'3','name':'诸葛亮','skills':['七星','狂风','大雾']},
+			{'kingdom':'蜀','HP':'3','name':'庞统','skills':['连环','涅槃']},
+			{'kingdom':'蜀','HP':'3','name':'诸葛亮','skills':['八阵','火计','看破']},
+			{'kingdom':'魏','HP':'4','name':'典韦','skills':['强袭']},
+			{'kingdom':'魏','HP':'3','name':'荀彧','skills':['驱虎','节命']},
+			{'kingdom':'吴','HP':'4','name':'太史慈','skills':['天义']},
+			{'kingdom':'群','HP':'4','name':'袁绍','skills':['乱箭','血裔']},
+			{'kingdom':'群','HP':'4','name':'颜良&文丑','skills':['双雄']},
+			{'kingdom':'群','HP':'4','name':'庞德','skills':['马术','猛进']}
+		]
+	},
+	{
+		'tag':'神话再临·山',
+		'warriors':[
+			{'kingdom':'神','HP':'2','name':'赵云','skills':['绝境','龙魂']},
+			{'kingdom':'神','HP':'4','name':'司马懿','skills':['忍戒','拜印','连破']},
+			{'kingdom':'蜀','HP':'4','name':'姜维','skills':['挑衅','志继']},
+			{'kingdom':'蜀','HP':'3','name':'刘禅','skills':['享乐','放权','若愚']},
+			{'kingdom':'魏','HP':'4','name':'张郃','skills':['巧变']},
+			{'kingdom':'魏','HP':'4','name':'邓艾','skills':['屯田','凿险']},
+			{'kingdom':'吴','HP':'4','name':'孙策','skills':['激昂','魂姿','制霸']},
+			{'kingdom':'吴','HP':'3','name':'张昭&张纮','skills':['直谏','固政']},
+			{'kingdom':'群','HP':'3','name':'左慈','skills':['化身','新生']},
+			{'kingdom':'群','HP':'3','name':'蔡文姬','skills':['悲歌','断肠']}
+		]
+	}
+];
+for(var i=0;i<warrior_packs.length;i++)
+	for(var j=0;j<warrior_packs[i].warriors.length;j++)
+	{
+		var skills='';
+		for(var k=0;k<warrior_packs[i].warriors[j].skills.length;k++)
+			skills+='<span>'+warrior_packs[i].warriors[j].skills[k]+'</span>';
+		document.write('<div class="warrior"><span class="tag">'+warrior_packs[i].tag+'</span><span class="kingdom">'+warrior_packs[i].warriors[j].kingdom+'</span><span class="hp">HP: '+warrior_packs[i].warriors[j].HP+'</span><span class="name">'+warrior_packs[i].warriors[j].name+'</span><span class="skills">'+skills+'</span></div>');
+	}
+		</script>
+	</body>
+</html>

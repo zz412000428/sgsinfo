@@ -1,0 +1,237 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>手牌</title>
+		<style type="text/css">
+div.card
+{
+	border-color: black;
+	border-style: solid;
+	border-width: thick;
+	box-sizing: content-box;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 16px;
+	height: 100px;
+	margin: 1px;
+	position: relative;
+	width: 60px;
+}
+div.card > span
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+}
+div.card span.tag
+{
+	bottom: 80px;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+}
+div.card span.poker
+{
+	bottom: 60px;
+	left: 0px;
+	right: 0px;
+	top: 20px;
+}
+div.card span.name
+{
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	top: 40px;
+	font-weight: bold;
+}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+var card_packs=[
+	{
+		'tag':'标准',
+		'cards':[
+			{'poker':'SA','name':'闪电'},
+			{'poker':'SA','name':'决斗'},
+			{'poker':'HA','name':'桃园结义'},
+			{'poker':'HA','name':'万箭齐发'},
+			{'poker':'CA','name':'诸葛连弩'},
+			{'poker':'CA','name':'决斗'},
+			{'poker':'DA','name':'诸葛连弩'},
+			{'poker':'DA','name':'决斗'},
+			{'poker':'S2','name':'八卦阵'},
+			{'poker':'S2','name':'雌雄双股剑'},
+			{'poker':'H2','name':'闪'},
+			{'poker':'H2','name':'闪'},
+			{'poker':'C2','name':'八卦阵'},
+			{'poker':'C2','name':'杀'},
+			{'poker':'D2','name':'闪'},
+			{'poker':'D2','name':'闪'},
+			{'poker':'S3','name':'顺手牵羊'},
+			{'poker':'S3','name':'过河拆桥'},
+			{'poker':'H3','name':'五谷丰登'},
+			{'poker':'H3','name':'桃'},
+			{'poker':'C3','name':'过河拆桥'},
+			{'poker':'C3','name':'杀'},
+			{'poker':'D3','name':'顺手牵羊'},
+			{'poker':'D3','name':'闪'},
+			{'poker':'S4','name':'顺手牵羊'},
+			{'poker':'S4','name':'过河拆桥'},
+			{'poker':'H4','name':'五谷丰登'},
+			{'poker':'H4','name':'桃'},
+			{'poker':'C4','name':'过河拆桥'},
+			{'poker':'C4','name':'杀'},
+			{'poker':'D4','name':'顺手牵羊'},
+			{'poker':'D4','name':'闪'},
+			{'poker':'S5','name':'绝影'},
+			{'poker':'S5','name':'青龙偃月刀'},
+			{'poker':'H5','name':'赤兔'},
+			{'poker':'H5','name':'麒麟弓'},
+			{'poker':'C5','name':'的卢'},
+			{'poker':'C5','name':'杀'},
+			{'poker':'D5','name':'贯石斧'},
+			{'poker':'D5','name':'闪'},
+			{'poker':'S6','name':'青釭剑'},
+			{'poker':'S6','name':'乐不思蜀'},
+			{'poker':'H6','name':'桃'},
+			{'poker':'H6','name':'乐不思蜀'},
+			{'poker':'C6','name':'杀'},
+			{'poker':'C6','name':'乐不思蜀'},
+			{'poker':'D6','name':'杀'},
+			{'poker':'D6','name':'闪'},
+			{'poker':'S7','name':'杀'},
+			{'poker':'S7','name':'南蛮入侵'},
+			{'poker':'H7','name':'无中生有'},
+			{'poker':'H7','name':'桃'},
+			{'poker':'C7','name':'杀'},
+			{'poker':'C7','name':'南蛮入侵'},
+			{'poker':'D7','name':'杀'},
+			{'poker':'D7','name':'闪'},
+			{'poker':'S8','name':'杀'},
+			{'poker':'S8','name':'杀'},
+			{'poker':'H8','name':'桃'},
+			{'poker':'H8','name':'无中生有'},
+			{'poker':'C8','name':'杀'},
+			{'poker':'C8','name':'杀'},
+			{'poker':'D8','name':'杀'},
+			{'poker':'D8','name':'闪'},
+			{'poker':'S9','name':'杀'},
+			{'poker':'S9','name':'杀'},
+			{'poker':'H9','name':'桃'},
+			{'poker':'H9','name':'无中生有'},
+			{'poker':'C9','name':'杀'},
+			{'poker':'C9','name':'杀'},
+			{'poker':'D9','name':'杀'},
+			{'poker':'D9','name':'闪'},
+			{'poker':'ST','name':'杀'},
+			{'poker':'ST','name':'杀'},
+			{'poker':'HT','name':'杀'},
+			{'poker':'HT','name':'杀'},
+			{'poker':'CT','name':'杀'},
+			{'poker':'CT','name':'杀'},
+			{'poker':'DT','name':'杀'},
+			{'poker':'DT','name':'闪'},
+			{'poker':'SJ','name':'顺手牵羊'},
+			{'poker':'SJ','name':'无懈可击'},
+			{'poker':'HJ','name':'杀'},
+			{'poker':'HJ','name':'无中生有'},
+			{'poker':'CJ','name':'杀'},
+			{'poker':'CJ','name':'杀'},
+			{'poker':'DJ','name':'闪'},
+			{'poker':'DJ','name':'闪'},
+			{'poker':'SQ','name':'丈八蛇矛'},
+			{'poker':'SQ','name':'过河拆桥'},
+			{'poker':'HQ','name':'桃'},
+			{'poker':'HQ','name':'过河拆桥'},
+			{'poker':'CQ','name':'借刀杀人'},
+			{'poker':'CQ','name':'无懈可击'},
+			{'poker':'DQ','name':'方天画戟'},
+			{'poker':'DQ','name':'桃'},
+			{'poker':'SK','name':'大宛'},
+			{'poker':'SK','name':'南蛮入侵'},
+			{'poker':'HK','name':'爪黄飞电'},
+			{'poker':'HK','name':'闪'},
+			{'poker':'CK','name':'借刀杀人'},
+			{'poker':'CK','name':'无懈可击'},
+			{'poker':'DK','name':'杀'},
+			{'poker':'DK','name':'紫骍'}
+		]
+	},
+	{
+		'tag':'EX',
+		'cards':[
+			{'poker':'S2','name':'寒冰剑'},
+			{'poker':'HQ','name':'闪电'},
+			{'poker':'C2','name':'仁王盾'},
+			{'poker':'DQ','name':'无懈可击'},
+			{'poker':'D5','name':'木牛流马'}
+		]
+	},
+	{
+		'tag':'军争',
+		'cards':[
+			{'poker':'SA','name':'古锭刀'},
+			{'poker':'HA','name':'无懈可击'},
+			{'poker':'CA','name':'白银狮子'},
+			{'poker':'DA','name':'朱雀羽扇'},
+			{'poker':'S2','name':'藤甲'},
+			{'poker':'H2','name':'火攻'},
+			{'poker':'C2','name':'藤甲'},
+			{'poker':'D2','name':'桃'},
+			{'poker':'S3','name':'酒'},
+			{'poker':'H3','name':'火攻'},
+			{'poker':'C3','name':'酒'},
+			{'poker':'D3','name':'桃'},
+			{'poker':'S4','name':'雷杀'},
+			{'poker':'H4','name':'火杀'},
+			{'poker':'C4','name':'兵粮寸断'},
+			{'poker':'D4','name':'火杀'},
+			{'poker':'S5','name':'雷杀'},
+			{'poker':'H5','name':'桃'},
+			{'poker':'C5','name':'雷杀'},
+			{'poker':'D5','name':'火杀'},
+			{'poker':'S6','name':'雷杀'},
+			{'poker':'H6','name':'桃'},
+			{'poker':'C6','name':'雷杀'},
+			{'poker':'D6','name':'闪'},
+			{'poker':'S7','name':'雷杀'},
+			{'poker':'H7','name':'火杀'},
+			{'poker':'C7','name':'雷杀'},
+			{'poker':'D7','name':'闪'},
+			{'poker':'S8','name':'雷杀'},
+			{'poker':'H8','name':'闪'},
+			{'poker':'C8','name':'雷杀'},
+			{'poker':'D8','name':'闪'},
+			{'poker':'S9','name':'酒'},
+			{'poker':'H9','name':'闪'},
+			{'poker':'C9','name':'酒'},
+			{'poker':'D9','name':'酒'},
+			{'poker':'ST','name':'兵粮寸断'},
+			{'poker':'HT','name':'火杀'},
+			{'poker':'CT','name':'铁索连环'},
+			{'poker':'DT','name':'闪'},
+			{'poker':'SJ','name':'铁索连环'},
+			{'poker':'HJ','name':'闪'},
+			{'poker':'CJ','name':'铁索连环'},
+			{'poker':'DJ','name':'闪'},
+			{'poker':'SQ','name':'铁索连环'},
+			{'poker':'HQ','name':'闪'},
+			{'poker':'CQ','name':'铁索连环'},
+			{'poker':'DQ','name':'火攻'},
+			{'poker':'SK','name':'无懈可击'},
+			{'poker':'HK','name':'无懈可击'},
+			{'poker':'CK','name':'铁索连环'},
+			{'poker':'DK','name':'骅骝'}
+		]
+	}
+];
+for(var i=0;i<card_packs.length;i++)
+	for(var j=0;j<card_packs[i].cards.length;j++)
+		document.write('<div class="card"><span class="tag">'+card_packs[i].tag+'</span><span class="poker">'+card_packs[i].cards[j].poker.replace('S','&spades;').replace('H','&hearts;').replace('C','&clubs;').replace('D','&diams;').replace('T','10')+'</span><span class="name">'+card_packs[i].cards[j].name+'</span></div>');
+		</script>
+	</body>
+</html>
